@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">VectorPainterExample</string>
+    <string name="click_on_the_image">Click on the image!</string>
+</resources>
