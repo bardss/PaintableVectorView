@@ -121,32 +121,25 @@ class LayeredVectorShape(
         e.printStackTrace()
     }
 
-    fun getLayersAt(x: Int, y: Int): List<Layer> {
-        val foundLayers = mutableListOf<Layer>()
-        layers.forEach { layer ->
-            if (layer.region.contains(x, y)) {
-                foundLayers.add(layer)
-            }
+    fun getLayersAt(x: Int, y: Int): Layer {
+        return layers.last {
+            it.region.contains(x, y)
         }
-        return foundLayers
     }
 
     fun getGroupLayersAt(x: Int, y: Int): List<Layer> {
-        var groupAtPosition: String? = null
-        val listOfLayersWithGroup = mutableListOf<Layer>()
-        layers.forEach { layer ->
-            if (layer.region.contains(x, y)) {
-                groupAtPosition = layer.group
-            }
+        val topLayerGroup = layers.last {
+            it.region.contains(x, y)
+        }.group
+        return layers.filter {
+            it.group == topLayerGroup && it.group != null
         }
-        if (groupAtPosition != null) {
-            layers.forEach { layer ->
-                if (layer.group == groupAtPosition) {
-                    listOfLayersWithGroup.add(layer)
-                }
-            }
+    }
+
+    fun resetColors() {
+        layers.forEach {
+            it.paint.color = it.baseColor
         }
-        return listOfLayersWithGroup
     }
 
     override fun onResize(width: Float, height: Float) {
@@ -166,7 +159,7 @@ class LayeredVectorShape(
 
     class Layer(
         data: String,
-        color: Int,
+        val baseColor: Int,
         var name: String,
         var group: String?
     ) {
@@ -175,8 +168,9 @@ class LayeredVectorShape(
         var paint = Paint(Paint.ANTI_ALIAS_FLAG)
         var region = Region()
 
+
         init {
-            paint.color = color
+            paint.color = baseColor
         }
 
         fun transform(matrix: Matrix, clip: Region) {

@@ -8,10 +8,10 @@ import android.widget.ImageView
 class PaintableVectorView(
     context: Context,
     drawableId: Int,
-    var paintType: PaintType = PaintType.PAINT_PATH
+    var paintType: PaintType = PaintType.PAINT_PATH,
+    var paintColor: Int
 ) : ImageView(context) {
     private var vectorShape: LayeredVectorShape = LayeredVectorShape(context, drawableId)
-    var paintColor: Int? = null
 
     init {
         background = ShapeDrawable(vectorShape)
@@ -35,16 +35,23 @@ class PaintableVectorView(
     }
 
     private fun onPathPaint(event: MotionEvent) {
-        val clickedLayers = vectorShape.getLayersAt(event.x.toInt(), event.y.toInt())
-        paintLayers(clickedLayers)
+        val clickedLayer = vectorShape.getLayersAt(event.x.toInt(), event.y.toInt())
+        paintLayer(clickedLayer)
     }
 
     private fun paintLayers(clickedLayers: List<LayeredVectorShape.Layer>) {
-        paintColor?.let { paintColor ->
-            clickedLayers.forEach {
-                it.paint.color = paintColor
-                invalidate()
-            }
+        clickedLayers.forEach {
+            paintLayer(it)
         }
+    }
+
+    private fun paintLayer(it: LayeredVectorShape.Layer) {
+        it.paint.color = paintColor
+        invalidate()
+    }
+
+    fun resetColors() {
+        vectorShape.resetColors()
+        invalidate()
     }
 }
