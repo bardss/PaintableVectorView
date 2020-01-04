@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">VectorPainterExample</string>
     <string name="click_on_the_image">Click on the image!</string>
+    <string name="path">PATH</string>
+    <string name="group">GROUP</string>
+    <string name="blue">blue</string>
+    <string name="red">red</string>
+    <string name="green">green</string>
+    <string name="yellow">yellow</string>
+    <string name="choose_paint_type">Choose paint type:</string>
+    <string name="reset_colors">RESET COLORS</string>
 </resources>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/mainLayout"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
@@ -8,14 +8,113 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/clickOnImageTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
         android:text="@string/click_on_the_image"
-        android:layout_marginBottom="16dp"/>
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
-        android:id="@+id/drawableBoxLayout"
+        android:id="@+id/paintableBoxLayout"
         android:layout_width="200dp"
-        android:layout_height="200dp"/>
+        android:layout_height="200dp"
+        android:layout_margin="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/clickOnImageTextView" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/paintTypeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="@string/choose_paint_type"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/paintableBoxLayout" />
+
+    <Button
+        android:id="@+id/drawPathButton"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:text="@string/path"
+        app:layout_constraintEnd_toStartOf="@id/drawGroupButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paintTypeTextView" />
+
+    <Button
+        android:id="@+id/drawGroupButton"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:text="@string/group"
+        app:layout_constraintStart_toEndOf="@id/drawPathButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paintTypeTextView" />
+
+    <TextView
+        android:id="@+id/paintColorTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Choose paint color"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/drawPathButton" />
+
+    <Button
+        android:id="@+id/paintBlueButton"
+        android:layout_width="100dp"
+        android:layout_height="32dp"
+        android:background="@color/blue"
+        android:text="@string/blue"
+        app:layout_constraintEnd_toStartOf="@id/drawGroupButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paintColorTextView" />
+
+    <Button
+        android:id="@+id/paintRedButton"
+        android:layout_width="100dp"
+        android:layout_height="32dp"
+        android:background="@color/red"
+        android:text="@string/red"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/drawPathButton"
+        app:layout_constraintTop_toBottomOf="@+id/paintColorTextView" />
+
+    <Button
+        android:id="@+id/paintGreenButton"
+        android:layout_width="100dp"
+        android:layout_height="32dp"
+        android:background="@color/green"
+        android:text="@string/green"
+        app:layout_constraintEnd_toStartOf="@id/drawGroupButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paintBlueButton" />
+
+    <Button
+        android:id="@+id/paintYellowButton"
+        android:layout_width="100dp"
+        android:layout_height="32dp"
+        android:background="@color/yellow"
+        android:text="@string/yellow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/drawPathButton"
+        app:layout_constraintTop_toBottomOf="@+id/paintBlueButton" />
+
+    <Button
+        android:id="@+id/resetColorsButton"
+        android:layout_width="160dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/reset_colors"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/paintYellowButton" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
