@@ -43,13 +43,13 @@ layout.addView(paintableView)
 
 Set other paint type:
 ```kotlin
-paintableView.paintType = PaintType.PAINT_PATH
+paintableView.paintType = PaintType.PAINT_GROUP
 ```
 
 
 Set other paint color:
 ```kotlin
-paintableView.paintType = PaintType.PAINT_GROUP
+paintableView.paintColor = resources.getColor(R.color.blue)
 ```
 
 
