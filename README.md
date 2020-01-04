@@ -29,7 +29,7 @@ dependencies {
 
 ## Usage
 
-Create PaintableVectorView
+Create PaintableVectorView and add to the layout:
 ```kotlin
 val paintableView = PaintableVectorView(
     context = this,
@@ -37,6 +37,7 @@ val paintableView = PaintableVectorView(
     paintType = PaintType.PAINT_GROUP,
     paintColor = resources.getColor(R.color.blue)
 )
+layout.addView(paintableView)
 ```
 
 
