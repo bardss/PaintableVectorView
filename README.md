@@ -10,7 +10,7 @@ PaintableVectorView enables to change color of paths/groups in Vector Drawable (
 
 ## Dependency
 
-Add it in your root build.gradle at the end of repositories:
+Add the following lines in your root build.gradle at the end of repositories:
 ```
 allprojects {
     repositories {
@@ -34,7 +34,7 @@ Create PaintableVectorView and add to the layout:
 val paintableView = PaintableVectorView(
     context = this,
     drawableId = R.drawable.ic_car,
-    paintType = PaintType.PAINT_GROUP,
+    paintType = PaintType.PAINT_PATH,
     paintColor = resources.getColor(R.color.blue)
 )
 layout.addView(paintableView)
