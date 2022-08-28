@@ -23,7 +23,7 @@ allprojects {
 Add the dependency
 ```
 dependencies {
-    implementation 'com.github.bardss:PaintableVectorView:1.0.0'
+    implementation 'com.github.bardss:PaintableVectorView:1.0.3'
 }
 ```
 
