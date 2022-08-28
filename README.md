@@ -60,7 +60,6 @@ paintableView.paintType = PaintType.PAINT_GROUP
 ```xml
 app:paintType="GROUP"
 ```
-or
 ```xml
 app:paintType="PATH"
 ```
