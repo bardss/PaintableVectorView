@@ -23,7 +23,7 @@ allprojects {
 Add the dependency
 ```
 dependencies {
-    implementation 'com.github.bardss:PaintableVectorView:1.0.3'
+    implementation 'com.github.bardss:PaintableVectorView:1.0.4'
 }
 ```
 
@@ -40,16 +40,38 @@ val paintableView = PaintableVectorView(
 layout.addView(paintableView)
 ```
 
+Or add in xml and set attributes:
+```xml
+    <com.jakubaniola.paintablevectorview.PaintableVectorView
+        android:id="@+id/paintableView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_margin="18dp"
+        app:drawable="@drawable/ic_car"
+        app:paintColor="@color/blue"
+        app:paintType="GROUP" />
+```
 
 Set other paint type:
 ```kotlin
 paintableView.paintType = PaintType.PAINT_GROUP
 ```
 
+```xml
+app:paintType="GROUP"
+```
+or
+```xml
+app:paintType="PATH"
+```
 
 Set other paint color:
 ```kotlin
 paintableView.paintColor = resources.getColor(R.color.blue)
+```
+
+```xml
+app:paintColor="@color/blue"
 ```
 
 
