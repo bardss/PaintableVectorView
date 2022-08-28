@@ -9,4 +9,7 @@
     <string name="yellow">yellow</string>
     <string name="choose_paint_type">Choose paint type:</string>
     <string name="reset_colors">RESET COLORS</string>
+    <string name="choose_init_type">Choose init type</string>
+    <string name="code">CODE</string>
+    <string name="xml">XML</string>
 </resources>

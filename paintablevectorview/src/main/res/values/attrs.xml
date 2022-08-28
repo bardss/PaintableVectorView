@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PaintableVectorView">
+        <attr name="drawable" format="reference"/>
+        <attr name="paintColor" format="reference"/>
+        <attr name="paintType" format="enum">
+            <enum name="PATH" value="0"/>
+            <enum name="GROUP" value="0"/>
+        </attr>
+    </declare-styleable>
+</resources>
